@@ -1,0 +1,3 @@
+model,name,category,brand,price,stock,shortDescription,longDescription,featured,specs,reviews,questions
+FW-100,Firewall 100,Firewalls,Cisco,1200,10,Basic firewall,High performance firewall for small business,true,"[{""name"":""Ports"",""value"":""8x1G""}]","[{""author"":""Admin"",""rating"":5,""body"":""Great!""}]","[{""author"":""User"",""question"":""Warranty?"",""answer"":""1 Year""}]"
+SW-200,Switch 200,Switches,Juniper,800,20,24-port switch,Managed gigabit switch,false,"[{""name"":""Ports"",""value"":""24x1G""}]",,

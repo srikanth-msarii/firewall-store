@@ -1,0 +1,388 @@
+[
+  { 
+    "id": 1, 
+    "category": "Switches",
+    "brand": "Cisco",
+    "name": "Cisco Catalyst 9300 24-port", 
+    "model": "C9300-24T-A", 
+    "price": "$2,450", 
+    "stock": 15,
+    "featured": true,
+    "image": "/assets/images/products/3.webp",
+    "images": [
+      "/assets/images/products/3.webp",
+      "/assets/images/products/5.webp",
+      "/assets/images/products/1.webp"
+    ],
+    "shortDescription": "Lead stackable enterprise switching platform, built for security, IoT, and cloud.",
+    "longDescription": "The Cisco® Catalyst® 9300 Series Switches are Cisco’s lead stackable enterprise switching platform built for security, IoT, mobility, and cloud. They are the next generation of the industry’s most widely deployed switching platform.",
+    "specs": [
+      { "name": "Ports", "value": "24 x 1G" },
+      { "name": "Uplinks", "value": "Network Module Slot (4x1G, 4x10G, 2x40G)" },
+      { "name": "Stacking", "value": "Yes, StackWise-480" }
+    ],
+    "specImage": "/assets/images/specs_image.webp",
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "John D.", "date": "2025-10-20", "title": "Incredible Switch", "body": "This Catalyst 9300 is a powerhouse. We replaced our old 3750s and the performance jump is night and day." },
+      { "id": 2, "rating": 4.5, "author": "IT Pro Weekly", "date": "2025-10-15", "title": "Solid Enterprise Choice", "body": "A bit pricey, but you get what you pay for. The security features are top-notch." },
+      { "id": 3, "rating": 4.7, "author": "NetworkOps Team", "date": "2025-11-02", "title": "Seamless Stack Performance", "body": "We stacked 4 units in our campus access layer and saw seamless failover and near-instant provisioning." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Mike S.", "date": "2025-10-22", "question": "Does this model come with rack-mount ears?", "answer": "Yes, all 9300 series 1RU switches ship with the rack-mounting kit included." },
+      { "id": 2, "author": "Sarah L.", "date": "2025-10-21", "question": "What is the warranty on this item?", "answer": "This unit comes with the Cisco Enhanced Limited Lifetime Warranty (E-LLW)." }
+    ]
+  },
+  { 
+    "id": 2, 
+    "category": "Transceivers",
+    "brand": "Cisco",
+    "name": "Cisco SFP-10G-SR", 
+    "model": "SFP-10G-SR", 
+    "price": "$180", 
+    "stock": 35, 
+    "featured": true,
+    "image": "/assets/images/products/1.webp",
+    "images": [
+      "/assets/images/products/1.webp",
+      "/assets/images/products/3.webp",
+      "/assets/images/products/5.webp"
+    ],
+    "shortDescription": "10GBASE-SR SFP+ transceiver module for multimode fiber up to 300m.",
+    "longDescription": "The Cisco SFP-10G-SR is a hot-swappable input/output device that plugs into a 10 Gigabit Ethernet port or slot. It provides a 10GBASE-SR interface over multimode fiber and supports link lengths up to 300 meters on OM3 MMF and 400 meters on OM4 MMF.",
+    "specs": [
+      { "name": "Interface", "value": "10GBASE-SR SFP+" },
+      { "name": "Wavelength", "value": "850 nm" },
+      { "name": "Maximum Distance", "value": "300 m (OM3) / 400 m (OM4)" },
+      { "name": "Connector Type", "value": "LC Duplex" },
+      { "name": "Operating Temperature", "value": "0°C to 70°C" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "NetworkOps", "date": "2025-09-12", "title": "Reliable Transceiver", "body": "We've used these across multiple 10G links — zero failures and great signal integrity." },
+      { "id": 2, "rating": 4.8, "author": "DC Engineer", "date": "2025-10-01", "title": "Plug and Play", "body": "Easy to install and compatible with both Nexus and Catalyst switches." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Leo K.", "date": "2025-09-20", "question": "Is this compatible with non-Cisco switches?", "answer": "It’s officially supported for Cisco devices, but may work with third-party switches that support SFP+ standards." },
+      { "id": 2, "author": "Sophie D.", "date": "2025-10-03", "question": "Does it include a dust cap?", "answer": "Yes, each transceiver ships with protective dust caps on both LC connectors." }
+    ]
+  },
+  { 
+    "id": 3, 
+    "category": "Servers",
+    "brand": "Dell",
+    "name": "Dell PowerEdge R760", 
+    "model": "R760 Server", 
+    "price": "$4,800", 
+    "stock": 8, 
+    "featured": false,
+    "image": "/assets/images/products/4.webp",
+    "images": [
+      "/assets/images/products/4.webp",
+      "/assets/images/products/2.webp"
+    ],
+    "shortDescription": "2U, dual-socket server for demanding applications.",
+    "longDescription": "The Dell PowerEdge R760 is a 2U, dual-socket server that delivers the performance you need for your most demanding applications.",
+    "specs": [
+      { "name": "Processor", "value": "4th Gen Intel Xeon Scalable" },
+      { "name": "Memory", "value": "Up to 8 TB DDR5" },
+      { "name": "Form Factor", "value": "2U Rack" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "SysTech", "date": "2025-09-18", "title": "Solid Performer", "body": "Very stable under high compute workloads. The iDRAC 9 interface is a big plus." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Ken P.", "date": "2025-09-20", "question": "Does this support NVMe drives?", "answer": "Yes, up to 24 NVMe drives depending on configuration." }
+    ]
+  },
+  { 
+    "id": 4, 
+    "category": "Firewalls",
+    "brand": "Fortinet",
+    "name": "Fortinet FortiGate 100F", 
+    "model": "FG-100F", 
+    "price": "$1,900", 
+    "stock": 20, 
+    "featured": true,
+    "image": "/assets/images/products/2.webp",
+    "images": [
+      "/assets/images/products/2.webp",
+      "/assets/images/products/3.webp"
+    ],
+    "shortDescription": "Fast and secure SD-WAN solution for enterprise branch offices.",
+    "longDescription": "The FortiGate 100F series provides a fast and secure SD-WAN solution in a compact desktop form factor for enterprise branch offices and mid-sized businesses.",
+    "specs": [
+      { "name": "Firewall Throughput", "value": "20 Gbps" },
+      { "name": "Threat Protection", "value": "1.6 Gbps" },
+      { "name": "Form Factor", "value": "Desktop" }
+    ],
+    "specImage": "/assets/images/specs_image.webp",
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 4, "author": "SysAdmin", "date": "2025-08-11", "title": "Great value SD-WAN", "body": "You can't beat the price/performance for SD-WAN." },
+      { "id": 2, "rating": 4.5, "author": "ITSec Review", "date": "2025-09-01", "title": "Solid Security", "body": "Great NGFW with easy GUI and centralized FortiManager support." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Nina K.", "date": "2025-09-12", "question": "Can it be rack-mounted?", "answer": "Yes, it comes with a rack-mount kit." }
+    ]
+  },
+  { 
+    "id": 5, 
+    "category": "Routers",
+    "brand": "Juniper",
+    "name": "Juniper MX204 Router", 
+    "model": "MX204", 
+    "price": "$4,500", 
+    "stock": 7, 
+    "featured": true,
+    "image": "/assets/images/products/5.webp",
+    "images": [
+      "/assets/images/products/5.webp"
+    ],
+    "shortDescription": "Space- and power-optimized router for enterprise and service providers.",
+    "longDescription": "The MX204 Universal Routing Platform is a space- and power-optimized router that’s ideal for enterprise and service provider applications.",
+    "specs": [
+      { "name": "System Capacity", "value": "400 Gbps" },
+      { "name": "Ports", "value": "4 x 100G/40G QSFP28, 8 x 10G SFP+" },
+      { "name": "Form Factor", "value": "1RU" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "ISP Core Eng", "date": "2025-10-10", "title": "Fantastic Edge Router", "body": "Handles BGP sessions and routing flawlessly." }
+    ],
+    "questions": [
+      { "id": 1, "author": "NetworkEng", "date": "2025-10-02", "question": "Is this standalone or license-based?", "answer": "It operates as a standalone router running Junos OS. Advanced features may require separate software licenses." }
+    ]
+  },
+  { 
+    "id": 6, 
+    "category": "Firewalls",
+    "brand": "Palo Alto",
+    "name": "Palo Alto PA-460", 
+    "model": "PA-460", 
+    "price": "$3,100", 
+    "stock": 0, 
+    "featured": false,
+    "image": "/assets/images/products/1.webp",
+    "images": [
+      "/assets/images/products/1.webp"
+    ],
+    "shortDescription": "ML-Powered Next-Generation Firewall (NGFW) for branch offices.",
+    "longDescription": "The PA-400 Series, including the PA-460, brings ML-Powered NGFW capabilities to distributed enterprise branch offices.",
+    "specs": [
+      { "name": "Firewall Throughput", "value": "8.4 Gbps" },
+      { "name": "Threat Prevention", "value": "4.2 Gbps" },
+      { "name": "Form Factor", "value": "Desktop" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 4.8, "author": "SecurityOps", "date": "2025-09-25", "title": "Strong and Reliable", "body": "The ML engine catches threats that older models missed." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Liam R.", "date": "2025-09-30", "question": "Does it support SD-WAN?", "answer": "Yes, SD-WAN is included in the PAN-OS feature set." }
+    ]
+  },
+  { 
+    "id": 7, 
+    "category": "Switches",
+    "brand": "Aruba",
+    "name": "Aruba 6300M 24-port", 
+    "model": "JL664A", 
+    "price": "$2,100", 
+    "stock": 12, 
+    "featured": false,
+    "image": "/assets/images/products/2.webp",
+    "images": [
+      "/assets/images/products/2.webp"
+    ],
+    "shortDescription": "Flexible and intelligent AOS-CX stackable switches for access/aggregation.",
+    "longDescription": "The Aruba CX 6300 Switch Series is a modern, flexible, and intelligent family of AOS-CX stackable switches ideal for access, aggregation, and data center top-of-rack (ToR) deployments.",
+    "specs": [
+      { "name": "Ports", "value": "24 x 1G" },
+      { "name": "Uplinks", "value": "4 x 1G/10G/25G SFP" },
+      { "name": "Stacking", "value": "Yes, VSF" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 4.6, "author": "CampusNet", "date": "2025-09-22", "title": "Smart and Reliable", "body": "AOS-CX management is intuitive and stable." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Tom L.", "date": "2025-09-27", "question": "Does it support PoE?", "answer": "Yes, specific models in the series provide full PoE+ support." }
+    ]
+  },
+  { 
+    "id": 8, 
+    "category": "Wireless",
+    "brand": "Cisco",
+    "name": "Cisco Catalyst 9800-L", 
+    "model": "C9800-L-C-K9", 
+    "price": "$1,750", 
+    "stock": 3, 
+    "featured": false,
+    "image": "/assets/images/products/4.webp",
+    "images": [
+      "/assets/images/products/4.webp"
+    ],
+    "shortDescription": "Fixed wireless controller for small and midsize enterprises.",
+    "longDescription": "The Cisco Catalyst 9800-L is a fixed wireless controller with seamless software updates for small and midsize enterprises.",
+    "specs": [
+      { "name": "Max APs", "value": "250" },
+      { "name": "Max Clients", "value": "5000" },
+      { "name": "Throughput", "value": "5 Gbps" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "WirelessPro", "date": "2025-09-10", "title": "Reliable Controller", "body": "Deployment with DNA Center was smooth and stable." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Harry G.", "date": "2025-09-15", "question": "Does this include AP licenses?", "answer": "No, AP licenses are purchased separately." }
+    ]
+  },
+  { 
+    "id": 9, 
+    "category": "Switches",
+    "brand": "Dell",
+    "name": "Dell PowerSwitch S4148F", 
+    "model": "S4148F-ON", 
+    "price": "$3,000", 
+    "stock": 0, 
+    "featured": false,
+    "image": "/assets/images/products/5.webp",
+    "images": [
+      "/assets/images/products/5.webp"
+    ],
+    "shortDescription": "Top-of-Rack (ToR) switch for high-performance data centers.",
+    "longDescription": "The S4148F-ON is a 1RU, high-density 10/25/40/50/100GbE ToR switch for high-performance data centers. It features Open Networking support.",
+    "specs": [
+      { "name": "Ports", "value": "48 x 10GbE, 4 x 100GbE" },
+      { "name": "Switching Capacity", "value": "1.76 Tbps" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 4.8, "author": "CloudInfra", "date": "2025-10-04", "title": "Great Open Networking", "body": "ONIE support makes it flexible for custom OS installs." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Jade P.", "date": "2025-10-07", "question": "Is it compatible with SONiC?", "answer": "Yes, officially supported for Dell OS10 and SONiC." }
+    ]
+  },
+  { 
+    "id": 10, 
+    "category": "Switches",
+    "brand": "Aruba",
+    "name": "HPE Aruba 2930F 48G", 
+    "model": "JL259A", 
+    "price": "$1,200", 
+    "stock": 9, 
+    "featured": false,
+    "image": "/assets/images/products/3.webp",
+    "images": [
+      "/assets/images/products/3.webp"
+    ],
+    "shortDescription": "Layer 3 access switch with 48 Gigabit ports and SFP+ uplinks.",
+    "longDescription": "The Aruba 2930F Switch Series is designed for customers creating digital workplaces optimized for mobile users. These Layer 3 access switches are easy to deploy and manage with advanced security and network management tools.",
+    "specs": [
+      { "name": "Ports", "value": "48 x 1G" },
+      { "name": "Uplinks", "value": "4 x 1G/10G SFP+" },
+      { "name": "Form Factor", "value": "1RU" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 4.4, "author": "SmallBizNet", "date": "2025-08-10", "title": "Good access switch", "body": "Easy to configure and stable for small networks." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Rob T.", "date": "2025-08-20", "question": "Does this support stacking?", "answer": "Yes, via Virtual Switching Framework (VSF)." }
+    ]
+  },
+  { 
+    "id": 11, 
+    "category": "Routers",
+    "brand": "Cisco",
+    "name": "Cisco ISR 4331", 
+    "model": "ISR4331/K9", 
+    "price": "$1,250", 
+    "stock": 10, 
+    "image": "/assets/images/products/2.webp",
+    "images": [
+      "/assets/images/products/2.webp",
+      "/assets/images/products/4.webp"
+    ],
+    "shortDescription": "Modular integrated services router for secure WAN access.",
+    "longDescription": "The Cisco 4000 Series Integrated Services Routers (ISR) deliver comprehensive WAN security and network services for branch offices. The 4331 model is ideal for mid-size deployments requiring scalability and performance.",
+    "specs": [
+      { "name": "Performance", "value": "100 Mbps to 300 Mbps aggregate throughput" },
+      { "name": "WAN Slots", "value": "2 Network Interface Modules (NIMs)" },
+      { "name": "Security", "value": "Integrated VPN and firewall capabilities" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 4.5, "author": "BranchIT", "date": "2025-09-09", "title": "Solid and Reliable", "body": "We’ve used the ISR 4331 for years across branch offices—reliable and easy to manage." },
+      { "id": 2, "rating": 4.2, "author": "NetOps", "date": "2025-10-03", "title": "Still a Classic", "body": "The ISR series remains dependable even as SD-WAN grows." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Ethan M.", "date": "2025-10-08", "question": "Does this support dual power supplies?", "answer": "No, the ISR 4331 supports a single internal AC or DC power supply." },
+      { "id": 2, "author": "Priya R.", "date": "2025-10-15", "question": "Can this be upgraded for higher throughput?", "answer": "Yes, performance licenses can increase throughput via Cisco Boost." }
+    ]
+  },
+  { 
+    "id": 12, 
+    "category": "Servers",
+    "brand": "HPE",
+    "name": "HPE ProLiant DL380", 
+    "model": "Gen11 Server", 
+    "price": "$4,200", 
+    "stock": 5, 
+    "featured": false,
+    "image": "/assets/images/products/1.webp",
+    "images": [
+      "/assets/images/products/1.webp",
+      "/assets/images/products/4.webp",
+      "/assets/images/products/3.webp"
+    ],
+    "shortDescription": "Scalable 2U 2P solution with exceptional compute performance density.",
+    "longDescription": "The HPE ProLiant DL380 Gen11 server is a scalable 2U 2P solution that delivers exceptional compute performance density and scalability for diverse workloads.",
+    "specs": [
+      { "name": "Processor", "value": "4th Gen Intel Xeon Scalable" },
+      { "name": "Memory", "value": "Up to 8 TB DDR5" },
+      { "name": "Form Factor", "value": "2U Rack" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "Data Center Ops", "date": "2025-09-01", "title": "Workhorse Server", "body": "The Gen11 is a beast. We've deployed 10 of these for our new VM cluster and they haven't skipped a beat." },
+      { "id": 2, "rating": 4.5, "author": "ServerAdmin", "date": "2025-10-05", "title": "Dense and Reliable", "body": "Excellent rack density, good cooling design and solid performance under VMware workloads." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Alex", "date": "2025-09-05", "question": "What kind of power supplies does this take?", "answer": "It supports dual redundant 800W or 1600W Flex Slot Platinum hot-plug power supplies." },
+      { "id": 2, "author": "Maria L.", "date": "2025-10-18", "question": "Does it support PCIe Gen5 GPUs?", "answer": "Yes, depending on chassis configuration." }
+    ]
+  },
+  { 
+    "id": 13, 
+    "category": "Servers",
+    "brand": "Dell",
+    "name": "Dell PowerEdge R760", 
+    "model": "R760 Server", 
+    "price": "$4,800", 
+    "stock": 8, 
+    "featured": false,
+    "image": "/assets/images/products/4.webp",
+    "images": [
+      "/assets/images/products/4.webp",
+      "/assets/images/products/2.webp"
+    ],
+    "shortDescription": "2U, dual-socket server for demanding applications.",
+    "longDescription": "The Dell PowerEdge R760 is a 2U, dual-socket server that delivers the performance you need for your most demanding applications.",
+    "specs": [
+      { "name": "Processor", "value": "4th Gen Intel Xeon Scalable" },
+      { "name": "Memory", "value": "Up to 8 TB DDR5" },
+      { "name": "Form Factor", "value": "2U Rack" }
+    ],
+    "datasheetUrl": "#",
+    "reviews": [
+      { "id": 1, "rating": 5, "author": "SysTech", "date": "2025-09-18", "title": "Solid Performer", "body": "Very stable under high compute workloads. The iDRAC 9 interface is a big plus." }
+    ],
+    "questions": [
+      { "id": 1, "author": "Ken P.", "date": "2025-09-20", "question": "Does this support NVMe drives?", "answer": "Yes, up to 24 NVMe drives depending on configuration." }
+    ]
+  }
+]
