@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Mail, Phone, DollarSign, BadgeCheck, Headset, ShieldCheck, Lock, 
-  ListChecks, HelpCircle, ChevronDown 
+import {
+  Mail, Phone, DollarSign, BadgeCheck, Headset, ShieldCheck, Lock,
+  ListChecks, HelpCircle, ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -25,8 +25,8 @@ const guaranteeItems = [
   },
   {
     icon: ShieldCheck,
-    title: '100% Money Back Guarantee',
-    text: 'You can contact our customer service team to exchange or return any product you bought from us.'
+    title: 'Easy Returns & Replacement',
+    text: 'Contact our customer service team within 48 hours to exchange or return defective or damaged products.'
   },
   {
     icon: Lock,
@@ -37,7 +37,7 @@ const guaranteeItems = [
 
 // --- Data for the Accordion ---
 const policyItems = [
-  { 
+  {
     title: '1. Manufacturer Warranty — Primary Coverage',
     content: "All products sold through Firewall Store are covered only by the warranty provided by the product’s manufacturer (the “OEM”). Warranty type (onsite, carry-in, replacement) and duration vary by OEM and product model. Any manufacturer-specific terms (including firmware, subscriptions, or licenses) apply as specified by the OEM."
   },
@@ -81,9 +81,9 @@ const AccordionItem = ({ title, content }) => {
         className="flex w-full items-center justify-between py-5 text-left"
       >
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-        <ChevronDown 
-          size={20} 
-          className={`transform text-blue-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+        <ChevronDown
+          size={20}
+          className={`transform text-blue-600 transition-transform ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
       <AnimatePresence>
@@ -112,9 +112,9 @@ export const WarrantyPage = () => {
     <>
       {/* --- SEO Tags (React 19) --- */}
       <title>Warranty Information | Trace Networks</title>
-      <meta 
-        name="description" 
-        content="Review the warranty and liability information for all products sold by Trace Networks (Firewall-Store.com)." 
+      <meta
+        name="description"
+        content="Review the warranty and liability information for all products sold by Trace Networks (Firewall-Store.com)."
       />
       <link rel="canonical" href="https://www.tracenetworks.com/warranty" />
       <meta property="og:title" content="Warranty Information | Trace Networks" />
@@ -122,10 +122,10 @@ export const WarrantyPage = () => {
 
       {/* --- Page Content --- */}
       <div className="bg-gray-50 pb-20">
-        
+
         {/* Hero Section */}
-        <div 
-          className="relative h-64 bg-cover bg-center" 
+        <div
+          className="relative h-64 bg-cover bg-center"
           style={{ backgroundImage: "url('/assets/images/solutions-cta-bg.webp')" }}
         >
           <div className="absolute inset-0 bg-blue-900/70" />
@@ -140,7 +140,7 @@ export const WarrantyPage = () => {
         {/* Floating Card Content */}
         <div className="container mx-auto max-w-7xl -translate-y-16 px-4">
           <div className="rounded-xl bg-white p-8 shadow-md md:p-12">
-            
+
             {/* --- 1. Our Guarantees (Visual Grid) --- */}
             <h2 className="text-3xl font-bold text-gray-900">Our Guarantees</h2>
             <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
@@ -163,7 +163,7 @@ export const WarrantyPage = () => {
             <div className="mt-12 border-t border-gray-300 pt-12">
               <h2 className="text-3xl font-bold text-gray-900">Return Material Authorization (RMA) Process</h2>
               <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     <ListChecks className="h-8 w-8 text-blue-600" />

@@ -13,7 +13,7 @@ export const bulkUploadProducts = async (req, res) => {
     }
 
     const results = [];
-    const stream = Readable.from(req.file.buffer.toString());
+    const stream = Readable.from(req.file.buffer);
 
     stream
         .pipe(csv())

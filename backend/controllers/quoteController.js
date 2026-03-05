@@ -1,4 +1,5 @@
 import QuoteRequest from '../models/QuoteRequest.js';
+import sendEmail from '../utils/sendEmail.js';
 
 // @desc    Submit a new quote request
 // @route   POST /api/quotes
@@ -7,6 +8,29 @@ const submitQuote = async (req, res) => {
   try {
     const newQuote = new QuoteRequest(req.body);
     const savedQuote = await newQuote.save();
+
+    // Send email notification to sales/admin
+    try {
+      const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_EMAIL || 'sales@firewall-store.com';
+      await sendEmail({
+        email: adminEmail,
+        subject: `New Quote Request: ${savedQuote.productName || 'General'} from ${savedQuote.name}`,
+        message: `You have received a new quote request from the website.\n
+Details:
+- Name: ${savedQuote.name}
+- Email: ${savedQuote.email}
+- Phone: ${savedQuote.phone}
+- Company: ${savedQuote.company || 'N/A'}
+- Product: ${savedQuote.productName || 'N/A'}
+- Quantity: ${savedQuote.quantity || 1}
+- Message: ${savedQuote.message || 'None'}\n
+Please login to the admin dashboard to view the full request.`,
+      });
+    } catch (emailError) {
+      console.error('Failed to send quote notification email:', emailError);
+      // Do not fail the request if email fails, log instead.
+    }
+
     res.status(201).json(savedQuote);
   } catch (error) {
     res.status(500).json({ message: 'Server Error', error: error.message });
@@ -23,15 +47,15 @@ const getQuotes = async (req, res) => {
     const search = req.query.search || '';
 
     // Create a search query
-    const query = search 
+    const query = search
       ? {
-          $or: [
-            { name: { $regex: search, $options: 'i' } },
-            { email: { $regex: search, $options: 'i' } },
-            { phone: { $regex: search, $options: 'i' } },
-            { productName: { $regex: search, $options: 'i' } },
-          ]
-        }
+        $or: [
+          { name: { $regex: search, $options: 'i' } },
+          { email: { $regex: search, $options: 'i' } },
+          { phone: { $regex: search, $options: 'i' } },
+          { productName: { $regex: search, $options: 'i' } },
+        ]
+      }
       : {};
 
     const count = await QuoteRequest.countDocuments(query);

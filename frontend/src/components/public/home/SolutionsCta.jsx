@@ -6,8 +6,8 @@ const bgImage = "/assets/images/solutions-cta-bg.webp";
 
 export const SolutionsCta = () => {
   return (
-    <section 
-      className="flex items-center bg-cover bg-center py-24" 
+    <section
+      className="flex items-center bg-cover bg-center py-24"
       // This applies the dark overlay just like the screenshot
       style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgImage})` }}
     >
@@ -22,7 +22,7 @@ export const SolutionsCta = () => {
             Firewall Store Solutions
           </span>
           <h2 className="my-4 text-3xl font-bold text-white md:text-4xl">
-            Together with Trace, Create Connections, Amplify Innovation
+            Together with Firewall Store, Create Connections, Amplify Innovation
           </h2>
           <p className="mb-8 mt-3 text-sm text-gray-200 md:text-base">
             Solving problems encountered in your business and help you build the ecosystems of business, people, IT hardware and technology.
@@ -32,13 +32,13 @@ export const SolutionsCta = () => {
               h2023_0073ED_blue_color_bg_button -> bg-[#0073ED]
               h2023_0073ED_white_color_border_button -> border-white
             */}
-            <Link 
+            <Link
               to="/products"
               className="rounded-full bg-[#0073ED] px-5 py-3 font-semibold text-white no-underline transition-colors hover:bg-blue-700"
             >
               Find Products
             </Link>
-            <Link 
+            <Link
               to="/inquiry"
               className="rounded-full border border-white px-5 py-3 font-semibold text-white no-underline transition-colors hover:bg-white hover:text-black"
             >

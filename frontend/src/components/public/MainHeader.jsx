@@ -27,7 +27,7 @@ const SearchComponent = ({
         value={searchTerm}
         onChange={handleSearchChange}
         onFocus={handleSearchChange}
-        autoFocus={isMobile} 
+        autoFocus={isMobile}
       />
 
       {searchTerm && (
@@ -96,9 +96,9 @@ export const MainHeader = ({ onQuoteClick }) => {
   const [allProducts, setAllProducts] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-  
+
   const navigate = useNavigate();
-  const searchRef = useRef(null); 
+  const searchRef = useRef(null);
   const mobileSearchRef = useRef(null);
 
   // 5. Fetch all product data from API
@@ -111,7 +111,7 @@ export const MainHeader = ({ onQuoteClick }) => {
         console.error("Failed to fetch all products for search", err);
       }
     };
-    
+
     fetchAllProducts();
   }, []); // Runs once on mount
 
@@ -176,7 +176,7 @@ export const MainHeader = ({ onQuoteClick }) => {
     <div className="bg-white py-4 shadow-sm border-b border-gray-200">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-12 items-center gap-x-4 gap-y-3">
-          
+
           {/* Logo */}
           <div className="col-span-4 sm:col-span-3">
             <Link to="/" className="cursor-pointer">
@@ -201,11 +201,6 @@ export const MainHeader = ({ onQuoteClick }) => {
                 <ClipboardList size={20} />
                 <span className="hidden md:inline text-sm font-medium">Get a Quote</span>
               </button>
-              
-              <Link to="/admin/login" className="flex items-center space-x-1.5 sm:me-5 text-gray-600 hover:text-blue-600">
-                <User size={20} />
-                <span className="hidden md:inline text-sm font-medium">Sign In</span>
-              </Link>
             </div>
           </div>
 
@@ -237,14 +232,14 @@ export const MainHeader = ({ onQuoteClick }) => {
             <div className="container mx-auto max-w-7xl px-4 py-4">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-lg font-semibold">Search Products</span>
-                <button 
+                <button
                   onClick={() => setIsMobileSearchOpen(false)}
                   className="text-gray-500 hover:text-red-600"
                 >
                   <X size={24} />
                 </button>
               </div>
-              
+
               <div ref={mobileSearchRef}>
                 <SearchComponent
                   searchTerm={searchTerm}

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { productService } from '../../services/api';
 
 // Main navigation links (can be static)
-const mainNav = ['Routers', 'Switches', 'Firewalls', 'Servers', 'Transceivers', 'Wireless'];
+const mainNav = ['Access Points / Wireless', 'Switches', 'Firewalls', 'Servers'];
 
 export const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ export const NavBar = () => {
       try {
         // 4. Call the API
         const { data } = await productService.getProducts();
-        
+
         // Process the flat product list into a grouped category map
         const categoryMap = new Map();
         data.forEach(product => {
@@ -43,14 +43,14 @@ export const NavBar = () => {
           name: name,
           sub: Array.from(brandsSet).slice(0, 5) // Show top 5 brands per category
         }));
-        
+
         setCategories(processedCategories);
       } catch (err) {
         console.error("Failed to fetch nav categories", err);
         setError("Could not load navigation data.");
       }
     };
-    
+
     fetchNavData();
   }, []); // Empty array ensures this runs only once
 
@@ -60,14 +60,14 @@ export const NavBar = () => {
       // Close category menu if click is outside
       if (
         isCategoryMenuOpen &&
-        categoryMenuRef.current && 
+        categoryMenuRef.current &&
         !categoryMenuRef.current.contains(event.target) &&
         categoryButtonRef.current &&
         !categoryButtonRef.current.contains(event.target)
       ) {
         setIsCategoryMenuOpen(false);
       }
-      
+
       // Close mobile menu if click is outside
       if (
         isMobileMenuOpen &&
@@ -101,7 +101,7 @@ export const NavBar = () => {
     <nav className="z-40 bg-blue-700 text-white">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between">
-          
+
           <div className="group relative" ref={categoryMenuRef}>
             <button
               ref={categoryButtonRef}
@@ -113,8 +113,8 @@ export const NavBar = () => {
               All Categories
               <ChevronDown size={18} className="ml-2" />
             </button>
-            
-            <div 
+
+            <div
               className={`absolute left-0 top-full z-50 w-full lg:min-w-[700px] lg:max-w-[800px] transform rounded-b-md 
                           bg-white text-gray-700 shadow-lg transition-all duration-300
                           ${isCategoryMenuOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
@@ -164,12 +164,12 @@ export const NavBar = () => {
               )}
             </div>
           </div>
-          
+
           {/* Main Nav Links (Desktop) */}
           <div className="hidden items-center space-x-1 lg:flex">
             {mainNav.map(link => (
-              <Link 
-                key={link} 
+              <Link
+                key={link}
                 to={`/products?category=${link}`}
                 className="px-4 py-3 text-sm font-medium transition-colors hover:bg-blue-800"
               >
@@ -180,9 +180,9 @@ export const NavBar = () => {
 
           {/* Right-side Links (Desktop) */}
           <div className="hidden items-center space-x-1 lg:flex">
-             <Link to="/about" className="px-4 py-3 text-sm font-medium transition-colors hover:bg-blue-800">About Us</Link>
-             <Link to="/promotions" className="px-4 py-3 text-sm font-medium transition-colors hover:bg-blue-800">Promotions</Link>
-             <Link 
+            <Link to="/about" className="px-4 py-3 text-sm font-medium transition-colors hover:bg-blue-800">About Us</Link>
+            <Link to="/promotions" className="px-4 py-3 text-sm font-medium transition-colors hover:bg-blue-800">Promotions</Link>
+            <Link
               to="/contact"
               className="px-4 py-3 text-sm font-medium transition-colors hover:bg-blue-800"
             >
@@ -204,7 +204,7 @@ export const NavBar = () => {
       {/* Mobile Menu - Now includes all links */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.nav 
+          <motion.nav
             ref={mobileMenuRef}
             className="absolute left-0 z-30 w-full bg-blue-800 shadow-lg lg:hidden overflow-hidden"
             initial={{ height: 0 }}
@@ -219,9 +219,9 @@ export const NavBar = () => {
                   <Link
                     to={
                       link === "Contact Us" ? "/contact" :
-                      link === "About Us" ? "/about" :
-                      link === "Promotions" ? "/promotions" :
-                      `/products?category=${link}`
+                        link === "About Us" ? "/about" :
+                          link === "Promotions" ? "/promotions" :
+                            `/products?category=${link}`
                     }
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block px-4 py-3 font-medium hover:bg-blue-900"

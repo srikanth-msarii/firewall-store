@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Layers, BadgeCheck, Briefcase, Lock, 
-  Award, Truck, Headset, 
-  Target, Eye, 
+import {
+  Layers, BadgeCheck, Briefcase, Lock,
+  Award, Truck, Headset,
+  Target, Eye,
   Mail, Phone, Linkedin, Twitter, Github // Added social icons
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -29,8 +29,8 @@ const itemVariants = {
 
 // --- Reusable Icon Card Component ---
 const FeatureCard = ({ icon: Icon, title, children }) => (
-  <motion.div 
-    variants={itemVariants} 
+  <motion.div
+    variants={itemVariants}
     className="flex items-start space-x-4 rounded-lg bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
   >
     <div className="flex-shrink-0">
@@ -45,50 +45,15 @@ const FeatureCard = ({ icon: Icon, title, children }) => (
   </motion.div>
 );
 
-// --- Leadership Card Component ---
-const LeaderCard = ({ image, name, title, social }) => (
-  <motion.div 
-    variants={itemVariants}
-    className="text-center rounded-lg bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col items-center"
-  >
-    <img 
-      src={image} 
-      alt={name} 
-      className="mx-auto h-36 w-36 rounded-full object-cover border-4 border-blue-100 shadow-lg" 
-    />
-    <h3 className="mt-6 text-xl font-bold text-gray-900">{name}</h3>
-    <p className="mt-1 text-base text-blue-600 font-medium">{title}</p>
-    {social && (
-      <div className="mt-4 flex space-x-3">
-        {social.linkedin && (
-          <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">
-            <Linkedin size={20} />
-          </a>
-        )}
-        {social.twitter && (
-          <a href={social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">
-            <Twitter size={20} />
-          </a>
-        )}
-        {social.github && (
-          <a href={social.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors">
-            <Github size={20} />
-          </a>
-        )}
-      </div>
-    )}
-  </motion.div>
-);
-
 
 export const AboutPage = () => {
   return (
     <>
       {/* --- SEO Tags (React 19) --- */}
       <title>About Us | Firewall Store</title>
-      <meta 
-        name="description" 
-        content="Learn about Firewall-Store.com, India's trusted online destination for enterprise-grade IT hardware, firewalls, networking, and servers. Discover our mission, vision, and leadership." 
+      <meta
+        name="description"
+        content="Learn about Firewall-Store.com, India's trusted online destination for enterprise-grade IT hardware, firewalls, networking, and servers. Discover our mission, vision, and leadership."
       />
       <link rel="canonical" href="https://www.firewall-store.com/about" />
       <meta property="og:title" content="About Us | Firewall Store" />
@@ -97,13 +62,13 @@ export const AboutPage = () => {
       {/* --- Page Content --- */}
       <div className="bg-gray-50 pb-20">
         {/* Hero Section */}
-        <div 
-          className="relative h-96 bg-cover bg-center flex items-center" 
+        <div
+          className="relative h-96 bg-cover bg-center flex items-center"
           style={{ backgroundImage: "url('/assets/images/solutions-cta-bg.webp')" || "url('https://images.unsplash.com/photo-1517038169123-afc6df1687f8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/60" />
           <div className="container relative z-10 mx-auto max-w-7xl px-4 text-white text-center md:text-left">
-            <motion.h1 
+            <motion.h1
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -111,7 +76,7 @@ export const AboutPage = () => {
             >
               Innovating Secure Networks for India
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -125,38 +90,38 @@ export const AboutPage = () => {
         {/* Floating Card Content */}
         <div className="container mx-auto max-w-7xl -translate-y-16 px-4">
           <div className="rounded-xl bg-white p-8 shadow-md md:p-12">
-            
+
             {/* Our Story Section */}
-            <motion.div 
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
-                className="relative bg-gray-50 p-8 rounded-lg mb-12 overflow-hidden"
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+              className="relative bg-gray-50 p-8 rounded-lg mb-12 overflow-hidden"
             >
-                {/* Optional: Add a subtle background pattern/image for this section */}
-                <div 
-                    className="absolute inset-0 opacity-10" 
-                    style={{ backgroundImage: "url('/assets/images/story-bg.webp')" || "url('https://www.transparenttextures.com/patterns/clean-textile.png')" }} 
-                />
-                <div className="relative z-10">
-                    <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight text-gray-900 mb-6">Our Story</motion.h2>
-                    <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-700 leading-relaxed">
-                        The idea behind Firewall-Store.com was simple — to create a reliable online marketplace where customers can find genuine IT infrastructure products backed by transparent pricing, clear specifications, and strong after-sales support. We bring together top-tier OEMs, expert guidance, and a smooth buying experience to simplify your technology procurement process.
-                    </motion.p>
-                    <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-700 leading-relaxed">
-                        As one of India’s trusted online destinations for firewalls, networking equipment, servers, and interactive panels, we help businesses build secure, connected, and high-performing digital environments. We’re dedicated to making enterprise-grade IT hardware accessible, authentic, and effortless to procure for startups, mid-size companies, and large enterprises alike.
-                    </motion.p>
-                </div>
+              {/* Optional: Add a subtle background pattern/image for this section */}
+              <div
+                className="absolute inset-0 opacity-10"
+                style={{ backgroundImage: "url('/assets/images/story-bg.webp')" || "url('https://www.transparenttextures.com/patterns/clean-textile.png')" }}
+              />
+              <div className="relative z-10">
+                <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight text-gray-900 mb-6">Our Story</motion.h2>
+                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-700 leading-relaxed">
+                  The idea behind Firewall-Store.com was simple — to create a reliable online marketplace where customers can find genuine IT infrastructure products backed by transparent pricing, clear specifications, and strong after-sales support. We bring together top-tier OEMs, expert guidance, and a smooth buying experience to simplify your technology procurement process.
+                </motion.p>
+                <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-700 leading-relaxed">
+                  As one of India’s trusted online destinations for firewalls, networking equipment, servers, and interactive panels, we help businesses build secure, connected, and high-performing digital environments. We’re dedicated to making enterprise-grade IT hardware accessible, authentic, and effortless to procure for startups, mid-size companies, and large enterprises alike.
+                </motion.p>
+              </div>
             </motion.div>
 
             {/* What We Offer Section */}
-            <motion.div 
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
-                className="mt-12 border-t border-gray-200 pt-12"
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+              className="mt-12 border-t border-gray-200 pt-12"
             >
               <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight text-gray-900 text-center mb-10">What We Offer</motion.h2>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
@@ -176,12 +141,12 @@ export const AboutPage = () => {
             </motion.div>
 
             {/* Mission & Vision Section */}
-            <motion.div 
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
-                className="mt-16 grid grid-cols-1 gap-8 border-t border-gray-200 pt-12 md:grid-cols-2"
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+              className="mt-16 grid grid-cols-1 gap-8 border-t border-gray-200 pt-12 md:grid-cols-2"
             >
               <motion.div variants={itemVariants} className="flex flex-col items-start p-6 rounded-lg bg-blue-50 shadow-md">
                 <span className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-blue-600 mb-4">
@@ -204,93 +169,77 @@ export const AboutPage = () => {
             </motion.div>
 
             {/* Why Choose Us Section */}
-            <motion.div 
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
-                id='advantages' 
-                className="mt-16 border-t border-gray-200 pt-12"
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+              id='advantages'
+              className="mt-16 border-t border-gray-200 pt-12"
             >
               <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight text-gray-900 text-center mb-10">Why Choose Firewall-Store.com</motion.h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <motion.div variants={itemVariants} className="text-center p-6 rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                   <Award className="mx-auto h-14 w-14 text-blue-600 mb-4" />
-                  <h3 className="mt-4 text-xl font-bold text-gray-900">Trusted Brands</h3>
-                  <p className="mt-2 text-gray-600">We feature globally recognized names in cybersecurity, networking, and IT infrastructure, ensuring top-tier quality and reliability.</p>
+                  <h3 className="mt-4 text-xl font-bold text-gray-900">Curated Enterprise Selection</h3>
+                  <p className="mt-2 text-gray-600">We partner exclusively with globally recognized tech giants to ensure every appliance you purchase meets the rigorous demands of modern enterprise architecture and cybersecurity.</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-center p-6 rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                   <Truck className="mx-auto h-14 w-14 text-blue-600 mb-4" />
-                  <h3 className="mt-4 text-xl font-bold text-gray-900">Fast Shipping</h3>
-                  <p className="mt-2 text-gray-600">Enjoy swift Pan-India delivery with our reliable logistics partners, ensuring quick turnaround times for your critical hardware.</p>
+                  <h3 className="mt-4 text-xl font-bold text-gray-900">Lightning-Fast Delivery</h3>
+                  <p className="mt-2 text-gray-600">Time is critical in enterprise IT. Enjoy rapid, insured, and secure Pan-India shipping directly to your data centers or branch offices, minimizing deployment downtime.</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-center p-6 rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                   <Headset className="mx-auto h-14 w-14 text-blue-600 mb-4" />
-                  <h3 className="mt-4 text-xl font-bold text-gray-900">Dedicated Support</h3>
-                  <p className="mt-2 text-gray-600">Our expert product specialists are always available to help you choose, compare, and purchase the ideal solution for your unique needs.</p>
+                  <h3 className="mt-4 text-xl font-bold text-gray-900">Unmatched Expert Support</h3>
+                  <p className="mt-2 text-gray-600">Our team consists of certified networking and security specialists ready to assist you. From pre-sales consultation to architecture guidance, we're with you at every step.</p>
                 </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Leadership Section */}
-            <motion.div 
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
-                className="mt-16 border-t border-gray-200 pt-12"
-            >
-              <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight text-gray-900 text-center mb-10">Meet Our Leadership</motion.h2>
-              <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
-                <LeaderCard 
-                  image="https://placehold.co/300x300/e0e7ff/3741b1?text=A" // Replace with actual image
-                  name="Aditya S."
-                  title="Founder & CEO"
-                  social={{ linkedin: "#", twitter: "#" }}
-                />
-                <LeaderCard 
-                  image="https://placehold.co/300x300/e0e7ff/3741b1?text=J" // Replace with actual image
-                  name="Jane D."
-                  title="Chief Technology Officer"
-                  social={{ linkedin: "#", github: "#" }}
-                />
-                <LeaderCard 
-                  image="https://placehold.co/300x300/e0e7ff/3741b1?text=R" // Replace with actual image
-                  name="Rohan K."
-                  title="Head of Operations"
-                  social={{ linkedin: "#" }}
-                />
+                <motion.div variants={itemVariants} className="text-center p-6 rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                  <BadgeCheck className="mx-auto h-14 w-14 text-blue-600 mb-4" />
+                  <h3 className="mt-4 text-xl font-bold text-gray-900">100% Genuine & Warranty Backed</h3>
+                  <p className="mt-2 text-gray-600">As authorized partners, we guarantee that every piece of hardware is factory-sealed, 100% authentic, and fully backed by the manufacturer's comprehensive warranty.</p>
+                </motion.div>
+                <motion.div variants={itemVariants} className="text-center p-6 rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                  <Lock className="mx-auto h-14 w-14 text-blue-600 mb-4" />
+                  <h3 className="mt-4 text-xl font-bold text-gray-900">Secure & Transparent Procurement</h3>
+                  <p className="mt-2 text-gray-600">Experience a seamless B2B purchasing process with bank-grade encryption, straightforward pricing, and absolute transparency, giving you complete peace of mind.</p>
+                </motion.div>
+                <motion.div variants={itemVariants} className="text-center p-6 rounded-lg bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                  <Briefcase className="mx-auto h-14 w-14 text-blue-600 mb-4" />
+                  <h3 className="mt-4 text-xl font-bold text-gray-900">Tailored Bulk & Custom Quotes</h3>
+                  <p className="mt-2 text-gray-600">Procuring for a large-scale project? We offer specialized bulk pricing, flexible engagement, and personalized quotes tailored to fit your specific scaling requirements.</p>
+                </motion.div>
               </div>
             </motion.div>
 
             {/* Get in Touch Section */}
-            <motion.div 
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={containerVariants}
-                className="mt-16 border-t border-gray-200 pt-12 text-center"
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+              className="mt-16 border-t border-gray-200 pt-12 text-center"
             >
               <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight text-gray-900 mb-6">Get in Touch</motion.h2>
               <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
                 For product inquiries, bulk purchases, or partnership opportunities, our team is ready to assist. Reach out to us:
               </motion.p>
-              <motion.div 
+              <motion.div
                 variants={containerVariants}
                 className="mt-8 flex flex-col items-center justify-center space-y-5 md:flex-row md:space-x-10 md:space-y-0"
               >
-                <motion.a 
-                    variants={itemVariants}
-                    href="mailto:sales@firewall-store.com" 
-                    className="inline-flex items-center text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                <motion.a
+                  variants={itemVariants}
+                  href="mailto:sales@firewall-store.com"
+                  className="inline-flex items-center text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors"
                 >
                   <Mail className="mr-3 h-6 w-6" />
                   sales@firewall-store.com
                 </motion.a>
-                <motion.a 
-                    variants={itemVariants}
-                    href="tel:+917032224513" 
-                    className="inline-flex items-center text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                <motion.a
+                  variants={itemVariants}
+                  href="tel:+917032224513"
+                  className="inline-flex items-center text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors"
                 >
                   <Phone className="mr-3 h-6 w-6" />
                   +91-7032224513
