@@ -16,8 +16,8 @@ const services = [
   },
   {
     category: 'Data',
-    title: 'Building Intelligent Data-first Modernization',
-    description: 'RS data center solutions deliver high-performance computing for business continuity, big data, AI, intelligent storage, driving innovation and growth.',
+    title: 'Building a Data-First, Intelligent IT Foundation',
+    description: 'Firewall-store.com delivers high-performance infrastructure and security solutions enabling business continuity, data-driven insights, AI readiness, and scalable growth.',
     linkText: 'Get Solutions >',
     linkUrl: '/inquiry',
     imageUrl: `${baseUrl}/solution_2.webp`
@@ -32,8 +32,8 @@ const services = [
   },
   {
     category: 'Cloud',
-    title: 'Delivering an Exceptional Experience at Cloud Scale',
-    description: 'We offer Alibaba Cloud services for powerful, scalable, and cost-effective computing, storage, and networking solutions for organizations.',
+    title: 'Delivering Performance at Cloud Scale',
+    description: 'Firewall-store.com offers scalable, secure, and cost-effective cloud solutions across compute, storage, and networking to power agility and business growth.',
     linkText: 'Learn Details >',
     linkUrl: '/inquiry',
     imageUrl: `${baseUrl}/solution_4.webp`

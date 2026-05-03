@@ -11,6 +11,7 @@ import { QuoteModal } from '../components/shared/QuoteModal';
 // 2. Import the Compare Provider, Bar, and hook
 import { CompareProvider, useCompare } from '../context/CompareContext';
 import { CompareBar } from '../components/public/CompareBar';
+import { WhatsAppFloat } from '../components/public/WhatsAppFloat';
 
 // 3. Create a new component to render the layout and toasts
 // This is necessary so it can be *inside* the CompareProvider
@@ -88,6 +89,7 @@ const LayoutRenderer = () => {
       />
       
       <CompareBar />
+      <WhatsAppFloat />
     </div>
   );
 };
