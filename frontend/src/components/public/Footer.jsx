@@ -24,11 +24,11 @@ export const Footer = () => {
             <h4 className="mb-4 font-semibold uppercase text-white">Products</h4>
             <ul className="space-y-2 text-sm">
               {/* 4. Link hover is brighter */}
-              <li><Link to="/products?category=Routers" className="hover:text-white">Routers</Link></li>
+             
               <li><Link to="/products?category=Switches" className="hover:text-white">Switches</Link></li>
               <li><Link to="/products?category=Firewalls" className="hover:text-white">Firewalls</Link></li>
               <li><Link to="/products?category=Servers" className="hover:text-white">Servers</Link></li>
-              <li><Link to="/products?category=Wireless" className="hover:text-white">Wireless</Link></li>
+              <li><Link to="/products?category=Wireless" className="hover:text-white">Access Points/Wireless</Link></li>
             </ul>
           </div>
 
@@ -50,7 +50,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="hover:text-white">About Us</Link></li>
               <li><Link to="/about#advantages" className="hover:text-white">Our Advantages</Link></li>
-              <li><Link to="/about#leadership" className="hover:text-white">Leadership</Link></li>
+              
             </ul>
           </div>
 
@@ -78,18 +78,18 @@ export const Footer = () => {
             </ul>
             {/* 5. Updated social icon colors */}
             <div className="mt-6 flex space-x-4">
-              <a href="#" className="text-blue-200 hover:text-white">
+              <a href="https://www.facebook.com/profile.php?id=61574434114590" className="text-blue-200 hover:text-white">
                 <Facebook size={24} />
               </a>
-              <a href="#" className="text-blue-200 hover:text-white">
+              <a href="https://www.linkedin.com/company/firewallstore" className="text-blue-200 hover:text-white">
                 <Linkedin size={24} />
               </a>
-              <a href="#" className="text-blue-200 hover:text-white">
+              {/* <a href="#" className="text-blue-200 hover:text-white">
                 <Youtube size={24} />
               </a>
               <a href="#" className="text-blue-200 hover:text-white">
                 <Twitter size={24} />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

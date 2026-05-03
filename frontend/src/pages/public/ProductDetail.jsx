@@ -19,6 +19,203 @@ const parsePrice = (priceString) => {
   return parseFloat(priceString.replace(/[$,]/g, ''));
 };
 
+const normalizeDescriptionText = (text) => {
+  if (!text || typeof text !== 'string') return '';
+  return text
+    .replace(/\\r\\n/g, '\n')
+    .replace(/\\n/g, '\n')
+    .replace(/\\t/g, '\t');
+};
+
+/** Turns API shortDescription (tab + CRLF separated specs) into rows for display. */
+const parseShortDescriptionRows = (text) => {
+  if (!text || typeof text !== 'string') return [];
+  const normalized = normalizeDescriptionText(text);
+  return normalized
+    .split(/\r\n|\n|\r/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const tabIdx = line.indexOf('\t');
+      if (tabIdx === -1) {
+        return { label: line, value: null };
+      }
+      return {
+        label: line.slice(0, tabIdx).trim(),
+        value: line.slice(tabIdx + 1).trim() || null,
+      };
+    });
+};
+
+const ShortDescriptionBlock = ({ text }) => {
+  const rows = parseShortDescriptionRows(text);
+  if (rows.length === 0) return null;
+
+  return (
+    <ul className="mt-6 list-outside list-disc space-y-2 pl-6 text-base marker:text-gray-400">
+      {rows.map((row, i) => (
+        <li key={i} className="text-gray-700">
+          {row.value != null && row.value !== '' ? (
+            <>
+              <span className="font-bold text-gray-900">{row.label}</span>
+              <span>: {row.value}</span>
+            </>
+          ) : (
+            <span>{row.label}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const isSpecContinuationLine = (line) =>
+  /^\s*\+/.test(line) ||
+  /^\s*\d+\s+x\s/i.test(line) ||
+  /^\s*\d+\s+port\b/i.test(line);
+
+const isLikelySectionHeading = (line) => {
+  if (!line || line.length > 52) return false;
+  if (/^\d/.test(line) || isSpecContinuationLine(line)) return false;
+  if (/,/.test(line) && line.length > 28) return false;
+  return true;
+};
+
+/**
+ * Parses longDescription: tab-separated label/value rows, section titles,
+ * subheadings (trailing ":"), and value continuations (e.g. "1 x COM", "8 port …").
+ */
+const parseLongDescriptionBlocks = (text) => {
+  const normalized = normalizeDescriptionText(text);
+  if (!normalized.trim()) return [];
+
+  const rawLines = normalized.split(/\r\n|\n|\r/);
+  /** @type {{ type: 'heading' | 'subheading' | 'item' | 'paragraph'; text?: string; label?: string; value?: string }[]} */
+  const blocks = [];
+  /** @type {{ type: 'item'; label: string; value: string } | null} */
+  let lastItem = null;
+
+  const lastBlock = () => (blocks.length ? blocks[blocks.length - 1] : null);
+
+  for (const raw of rawLines) {
+    const line = raw.trim();
+    if (!line) continue;
+
+    const tabIdx = line.indexOf('\t');
+    if (tabIdx !== -1) {
+      const label = line.slice(0, tabIdx).trim();
+      const value = line.slice(tabIdx + 1).trim();
+      if (!label && !value) continue;
+      if (label && !value) {
+        blocks.push({ type: 'heading', text: label });
+        lastItem = null;
+        continue;
+      }
+      if (!label && value) {
+        blocks.push({ type: 'paragraph', text: value });
+        lastItem = null;
+        continue;
+      }
+      const item = { type: 'item', label, value };
+      blocks.push(item);
+      lastItem = item;
+      continue;
+    }
+
+    if (lastItem && isSpecContinuationLine(line)) {
+      lastItem.value = `${lastItem.value}\n${line}`;
+      continue;
+    }
+
+    if (/:\s*$/.test(line)) {
+      blocks.push({ type: 'subheading', text: line.trimEnd() });
+      lastItem = null;
+      continue;
+    }
+
+    const prev = lastBlock();
+    if (prev?.type === 'heading') {
+      blocks.push({ type: 'subheading', text: line });
+      lastItem = null;
+      continue;
+    }
+
+    if (isLikelySectionHeading(line)) {
+      blocks.push({ type: 'heading', text: line });
+      lastItem = null;
+      continue;
+    }
+
+    if (lastItem) {
+      lastItem.value = `${lastItem.value}\n${line}`;
+      continue;
+    }
+
+    blocks.push({ type: 'paragraph', text: line });
+    lastItem = null;
+  }
+
+  return blocks;
+};
+
+const LongDescriptionBlock = ({ text }) => {
+  const blocks = parseLongDescriptionBlocks(text);
+  if (blocks.length === 0) return null;
+
+  const nodes = [];
+  let i = 0;
+  while (i < blocks.length) {
+    const b = blocks[i];
+    if (b.type === 'item') {
+      const items = [];
+      while (i < blocks.length && blocks[i].type === 'item') {
+        items.push(blocks[i]);
+        i += 1;
+      }
+      nodes.push(
+        <ul
+          key={`ld-items-${nodes.length}`}
+          className="list-outside list-disc space-y-1 pl-5 text-base leading-snug marker:text-gray-400"
+        >
+          {items.map((it, j) => (
+            <li key={j} className="text-gray-700">
+              <span className="font-bold text-gray-900">{it.label}</span>
+              <span className="whitespace-pre-line">: {it.value}</span>
+            </li>
+          ))}
+        </ul>
+      );
+      continue;
+    }
+
+    if (b.type === 'heading') {
+      nodes.push(
+        <h4
+          key={`ld-h-${nodes.length}`}
+          className="text-base font-bold text-gray-900 sm:text-lg"
+        >
+          {b.text}
+        </h4>
+      );
+    } else if (b.type === 'subheading') {
+      nodes.push(
+        <p key={`ld-sh-${nodes.length}`} className="text-base font-semibold text-gray-800">
+          {b.text}
+        </p>
+      );
+    } else if (b.type === 'paragraph') {
+      nodes.push(
+        <p key={`ld-p-${nodes.length}`} className="text-base text-gray-700">
+          {b.text}
+        </p>
+      );
+    }
+    i += 1;
+  }
+
+  return <div className="flex flex-col gap-2 text-gray-700">{nodes}</div>;
+};
+
 // --- StarRating component ---
 const StarRating = ({ rating }) => {
   const stars = [];
@@ -220,7 +417,7 @@ export const ProductDetail = () => {
                 onTabSelect={handleTabSelect}
               />
               
-              <p className="mt-6 text-base text-gray-700">{product.shortDescription}</p>
+              <ShortDescriptionBlock text={product.shortDescription} />
 
               {/* Price, Stock & Quantity Layout */}
               <div className="mt-6 flex items-start justify-between border-t border-gray-200 py-4">
@@ -367,8 +564,12 @@ export const ProductDetail = () => {
             <div className="py-10">
               {activeTab === 'description' && (
                 // 3. Added prose class for high-end text formatting
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p>{product.longDescription}</p>
+                <div className="max-w-none text-base text-gray-700">
+                  {product.longDescription ? (
+                    <LongDescriptionBlock text={product.longDescription} />
+                  ) : (
+                    <p>No detailed description available.</p>
+                  )}
                 </div>
               )}
               
