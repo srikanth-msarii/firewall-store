@@ -670,7 +670,7 @@ export const ProductDetail = () => {
           </div>
 
           {/* --- 5. NEW Static Sections --- */}
-          <TrustedBy />
+          {/* <TrustedBy /> */}
           <WarrantyInfo />
           {/* --- End New Sections --- */}
 

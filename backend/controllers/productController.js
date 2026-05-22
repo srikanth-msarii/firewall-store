@@ -4,8 +4,11 @@ import { uploadFileToS3, deleteFileFromS3 } from '../utils/s3.js';
 // @desc    Fetch all products (public, with filters)
 export const getAllProducts = async (req, res) => {
   try {
-    const { category, brand, q: searchTerm } = req.query;
+    const { category, brand, q: searchTerm, featured } = req.query;
     let query = {};
+    if (featured === 'true' || featured === true) {
+      query.featured = true;
+    }
     if (category) query.category = { $regex: category, $options: 'i' };
     if (brand) query.brand = { $regex: brand, $options: 'i' };
     if (searchTerm) {

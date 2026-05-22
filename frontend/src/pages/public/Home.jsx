@@ -20,7 +20,8 @@ export const Home = () => {
         setLoading(true);
         // 4. Call the API to get products where 'featured: true'
         const { data } = await productService.getProducts({ featured: true });
-        setFeaturedProducts(data);
+        const products = Array.isArray(data) ? data : [];
+        setFeaturedProducts(products.filter((product) => product.featured === true));
         setError(null);
       } catch (err) {
         console.error("Failed to fetch featured products", err);
@@ -56,10 +57,11 @@ export const Home = () => {
             <div className="text-center text-lg text-gray-600">Loading products...</div>
           ) : error ? (
             <div className="text-center text-lg text-red-600">{error}</div>
+          ) : featuredProducts.length === 0 ? (
+            <div className="text-center text-lg text-gray-600">No featured products available.</div>
           ) : (
             <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {featuredProducts.map((product) => (
-                // 6. Use product._id (from MongoDB) as the key
                 <ProductCard key={product._id} product={product} />
               ))}
             </div>
